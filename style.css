@@ -1,0 +1,47 @@
+
+@font-face {
+    font-family: HarmonyOS;
+    src: url(fonts/harmonyos-sans/HarmonyOS_Sans_Black.ttf);
+}
+
+body {
+    background-color: #2b2a2a;
+}
+.memo-icon {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+.memo-icon:hover {
+    background-color: #696969;
+    border-radius: 10px;
+}
+
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    height: auto;
+}
+
+.memo-text {
+    text-align: center;
+    transform: translateY(-15px);
+}
+
+.grid-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+p {
+    color: white;
+    font-family: HarmonyOS;
+    font-size: 20px;
+    word-wrap: break-word;
+}
