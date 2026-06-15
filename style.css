@@ -4,15 +4,6 @@
     src: url(fonts/harmonyos-sans/HarmonyOS_Sans_Black.ttf);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 h3 {
     color: white;
     font-family: HarmonyOS;
@@ -43,7 +34,7 @@ body {
     border-radius: 11px;
 }
 
-.grid-button:focus {
+.grid-button.selected {
     background-color: #b2a500;
 }
 
