@@ -77,3 +77,20 @@ p {
     font-size: 20px;
     word-wrap: break-word;
 }
+
+.content {
+    display: flex;
+}
+
+.beacon-display {
+    align-items: center;
+    align-content: center;
+    margin-left: 10%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.beacon-icon {
+    margin: 2%;
+}

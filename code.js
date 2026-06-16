@@ -9,6 +9,7 @@ for (let i = 0; i < buttons.length; i++) {
     console.log("add event listener");
     buttons[i].addEventListener("click", () => {
         buttons[i].classList.toggle("selected");
+        UpdateBeacon(buttons[i]);
         // Add to queue to keep track of oldest selected button
 
         // If element already in queue
@@ -29,4 +30,8 @@ for (let i = 0; i < buttons.length; i++) {
         iconQueue.push(buttons[i]);
         console.log(iconQueue);
     })
+}
+
+function UpdateBeacon(button) {
+
 }
