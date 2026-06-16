@@ -94,3 +94,7 @@ p {
 .beacon-icon {
     margin: 2%;
 }
+
+.selected-3 {
+    visibility: hidden;
+}
