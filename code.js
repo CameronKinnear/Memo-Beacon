@@ -28,6 +28,7 @@ for (let i = 0; i < buttons.length; i++) {
 
         // Add button to queue
         iconQueue.push(buttons[i]);
+        console.log();
         UpdateBeacon();
         console.log(iconQueue);
     })
@@ -36,23 +37,27 @@ for (let i = 0; i < buttons.length; i++) {
 // Updates the webpage to display the currently selected beacon icons
 function UpdateBeacon() {
     let lenQueue = iconQueue.length;
+    console.log("Length of queue" + lenQueue);
 
     const selectedIcons = document.getElementsByClassName("beacon-icon");
-    console.log(selectedIcons);
     let lenSelected = selectedIcons.length;
+    console.log("Length of selected " + lenSelected);
 
     // Remove all the icons from the website to be replaced
-    for (let i = 0; i < lenSelected; i++) {
-        selectedIcons[i].remove();
+    if (lenSelected != 0) {
+        for (let i = 0; i < lenSelected; i++) {
+            selectedIcons[i].remove();
+            console.log('removed');
+        }
     }
-
+    
     // Add all the icons from the queue back to the page
     for (let i = 0; i < lenQueue; i++) {
         let newBeaconIcon = document.createElement("img");
-        newBeaconIcon.src = iconQueue[i].getAttribute('data-src');
-        console.log(iconQueue[i].src);
+        newBeaconIcon.src = iconQueue[i].querySelector('.grid-button img').src;
         newBeaconIcon.className = "beacon-icon";
         document.querySelector(".beacon-display").appendChild(newBeaconIcon);
-        
     }
+
+    console.log("New length of selected " + selectedIcons.length);
 }
