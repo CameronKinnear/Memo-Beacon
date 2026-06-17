@@ -9,7 +9,6 @@ for (let i = 0; i < buttons.length; i++) {
     console.log("add event listener");
     buttons[i].addEventListener("click", () => {
         buttons[i].classList.toggle("selected");
-        UpdateBeacon(buttons[i]);
         // Add to queue to keep track of oldest selected button
 
         // If element already in queue
@@ -17,6 +16,7 @@ for (let i = 0; i < buttons.length; i++) {
             console.log("spliced");
             const index = iconQueue.indexOf(buttons[i]);
             iconQueue.splice(index, 1);
+            UpdateBeacon();
             return;
         }
 
@@ -28,10 +28,30 @@ for (let i = 0; i < buttons.length; i++) {
 
         // Add button to queue
         iconQueue.push(buttons[i]);
+        console.log();
+        UpdateBeacon();
         console.log(iconQueue);
     })
 }
 
-function UpdateBeacon(button) {
+// Updates the webpage to display the currently selected beacon icons
+function UpdateBeacon() {
+    let lenQueue = iconQueue.length;
+    console.log("Length of queue" + lenQueue);
 
+    const selectedIcons = document.getElementsByClassName("beacon-icon");
+    let lenSelected = selectedIcons.length;
+    console.log("Length of selected " + lenSelected);
+
+    document.querySelectorAll('.beacon-icon').forEach(el => el.remove());
+
+    // Add all the icons from the queue back to the page
+    for (let i = 0; i < lenQueue; i++) {
+        let newBeaconIcon = document.createElement("img");
+        newBeaconIcon.src = iconQueue[i].querySelector('.grid-button img').src;
+        newBeaconIcon.className = "beacon-icon";
+        document.querySelector(".beacon-display").appendChild(newBeaconIcon);
+    }
+
+    console.log("New length of selected " + selectedIcons.length);
 }
