@@ -43,14 +43,8 @@ function UpdateBeacon() {
     let lenSelected = selectedIcons.length;
     console.log("Length of selected " + lenSelected);
 
-    // Remove all the icons from the website to be replaced
-    if (lenSelected != 0) {
-        for (let i = 0; i < lenSelected; i++) {
-            selectedIcons[i].remove();
-            console.log('removed');
-        }
-    }
-    
+    document.querySelectorAll('.beacon-icon').forEach(el => el.remove());
+
     // Add all the icons from the queue back to the page
     for (let i = 0; i < lenQueue; i++) {
         let newBeaconIcon = document.createElement("img");
